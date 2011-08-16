@@ -8,14 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 #import "DebugClient.h"
-#import "VariablesView.h"
+#import "VariablesViewController.h"
 #import <PSMTabBarControl/PSMTabBarControl.h>
 
 @interface MainWindowController : NSWindowController <DebugClientDelegate>
 {
     IBOutlet NSTextView *fileView;
-    IBOutlet VariablesView *localVars;
     IBOutlet PSMTabBarControl *tabBar;
+    IBOutlet NSView *variablesView;
+    VariablesViewController *variablesController;
     DebugClient *debug;
 }
 @end

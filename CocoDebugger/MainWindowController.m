@@ -16,15 +16,17 @@
 - (id)init
 {
     self = [super initWithWindowNibName:@"MainWindow"];
+    if (self) {
+        variablesController = [VariablesViewController new];
+    }
     return self;
 }
 
-- (void)windowWillLoad
+- (void)windowDidLoad
 {
-    [super windowWillLoad];
-    
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    [super windowDidLoad];
+    [variablesController.view setFrame:[variablesView bounds]];
+    [variablesView addSubview:variablesController.view];
 }
 
 - (IBAction)attach:(id)sender
@@ -32,7 +34,7 @@
     [tabBar setStyleNamed:@"Aqua"];
     debug = [[DebugClient alloc] init];
     debug.delegate = self;
-    localVars.debug = debug;
+    variablesController.debug = debug;
     [debug connect];
 }
 
@@ -92,7 +94,7 @@
 
 -(void)debugLocalVariablesChanged:(DebugClient *)debug
 {
-    [localVars reloadData];
+    [variablesController reloadData];
 }
 
 @end

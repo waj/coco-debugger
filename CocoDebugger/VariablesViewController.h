@@ -9,13 +9,15 @@
 #import <Cocoa/Cocoa.h>
 #import "DebugClient.h"
 
-@interface VariablesView : NSTableView <NSTableViewDataSource>
+@interface VariablesViewController : NSViewController <NSTableViewDataSource>
 {
+    IBOutlet NSTableView *tableView;
     IBOutlet NSTableColumn *nameColumn;
     IBOutlet NSTableColumn *valueColumn;
     DebugClient *debug;
 }
 
+-(void) reloadData;
 @property (assign) DebugClient *debug;
 
 @end

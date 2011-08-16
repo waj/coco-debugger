@@ -6,27 +6,21 @@
 //  Copyright 2011 Manas Technology Solutions. All rights reserved.
 //
 
-#import "VariablesView.h"
+#import "VariablesViewController.h"
 
-@implementation VariablesView
+@implementation VariablesViewController
 @synthesize debug;
 
-- (id)initWithFrame:(NSRect)frame
+-(id)init
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-    }
-    
+    self = [super initWithNibName:@"VariablesView" bundle:nil];
     return self;
 }
 
-- (void)awakeFromNib
+-(void)reloadData
 {
-    self.dataSource = self;
+    [tableView reloadData];
 }
-
-
-
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
