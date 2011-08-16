@@ -17,9 +17,10 @@
 		329AE9BC13F6F72200563FF4 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329AE9BA13F6F72200563FF4 /* MainWindowController.m */; };
 		32C902EC13F8A06E00B6ECDD /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C902EB13F8A06E00B6ECDD /* PSMTabBarControl.framework */; };
 		32C902EE13F8A11600B6ECDD /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32C902EB13F8A06E00B6ECDD /* PSMTabBarControl.framework */; };
-		32C902F513F8D6FD00B6ECDD /* CodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C902F413F8D6FD00B6ECDD /* CodeView.m */; };
 		32DFDFCB13FA0241009D3D2F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32DFDFCA13FA0241009D3D2F /* MainWindow.xib */; };
 		32ED45A113FA08B4009DB17E /* VariablesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32ED45A013FA08B4009DB17E /* VariablesView.xib */; };
+		32ED45AA13FA1A44009DB17E /* CodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ED45A813FA1A44009DB17E /* CodeViewController.m */; };
+		32ED45AB13FA1A44009DB17E /* CodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32ED45A913FA1A44009DB17E /* CodeView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,7 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		32566BF813F8903F001117D6 /* VariablesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; name = VariablesViewController.h; path = CocoDebugger/VariablesViewController.h; sourceTree = "<group>"; };
+		32566BF813F8903F001117D6 /* VariablesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VariablesViewController.h; path = CocoDebugger/VariablesViewController.h; sourceTree = "<group>"; };
 		32566BF913F8903F001117D6 /* VariablesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VariablesViewController.m; path = CocoDebugger/VariablesViewController.m; sourceTree = "<group>"; };
 		329AE99613F6F6B400563FF4 /* CocoDebugger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoDebugger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		329AE99A13F6F6B400563FF4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -55,10 +56,11 @@
 		329AE9B913F6F72200563FF4 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowController.h; path = CocoDebugger/MainWindowController.h; sourceTree = "<group>"; };
 		329AE9BA13F6F72200563FF4 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = CocoDebugger/MainWindowController.m; sourceTree = "<group>"; };
 		32C902EB13F8A06E00B6ECDD /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = ../3rdParty/PSMTabBarControl/build/Release/PSMTabBarControl.framework; sourceTree = "<group>"; };
-		32C902F313F8D6FD00B6ECDD /* CodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CodeView.h; path = CocoDebugger/CodeView.h; sourceTree = "<group>"; };
-		32C902F413F8D6FD00B6ECDD /* CodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CodeView.m; path = CocoDebugger/CodeView.m; sourceTree = "<group>"; };
 		32DFDFCA13FA0241009D3D2F /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		32ED45A013FA08B4009DB17E /* VariablesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariablesView.xib; sourceTree = "<group>"; };
+		32ED45A713FA1A44009DB17E /* CodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeViewController.h; sourceTree = "<group>"; };
+		32ED45A813FA1A44009DB17E /* CodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeViewController.m; sourceTree = "<group>"; };
+		32ED45A913FA1A44009DB17E /* CodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CodeView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		32DFDFC713FA0163009D3D2F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				32ED45A913FA1A44009DB17E /* CodeView.xib */,
 				329AE9AF13F6F6B400563FF4 /* MainMenu.xib */,
 				32DFDFCA13FA0241009D3D2F /* MainWindow.xib */,
 				32ED45A013FA08B4009DB17E /* VariablesView.xib */,
@@ -153,8 +156,8 @@
 			children = (
 				32566BF813F8903F001117D6 /* VariablesViewController.h */,
 				32566BF913F8903F001117D6 /* VariablesViewController.m */,
-				32C902F313F8D6FD00B6ECDD /* CodeView.h */,
-				32C902F413F8D6FD00B6ECDD /* CodeView.m */,
+				32ED45A713FA1A44009DB17E /* CodeViewController.h */,
+				32ED45A813FA1A44009DB17E /* CodeViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				329AE9B113F6F6B400563FF4 /* MainMenu.xib in Resources */,
 				32DFDFCB13FA0241009D3D2F /* MainWindow.xib in Resources */,
 				32ED45A113FA08B4009DB17E /* VariablesView.xib in Resources */,
+				32ED45AB13FA1A44009DB17E /* CodeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +233,7 @@
 				329AE9BB13F6F72200563FF4 /* DebugClient.m in Sources */,
 				329AE9BC13F6F72200563FF4 /* MainWindowController.m in Sources */,
 				32566BFA13F8903F001117D6 /* VariablesViewController.m in Sources */,
-				32C902F513F8D6FD00B6ECDD /* CodeView.m in Sources */,
+				32ED45AA13FA1A44009DB17E /* CodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
