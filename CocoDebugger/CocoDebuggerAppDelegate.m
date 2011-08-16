@@ -10,11 +10,16 @@
 
 @implementation CocoDebuggerAppDelegate
 
-@synthesize window;
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    mainWindowController = [MainWindowController new];
+    [mainWindowController showWindow:self];
+}
+
+-(void)dealloc
+{
+    [mainWindowController release];
+    [super dealloc];
 }
 
 @end

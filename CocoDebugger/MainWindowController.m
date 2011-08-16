@@ -13,12 +13,9 @@
 
 @implementation MainWindowController
 
-- (id)initWithWindow:(NSWindow *)window
+- (id)init
 {
-    self = [super initWithWindow:window];
-    if (self) {
-    }
-    
+    self = [super initWithWindowNibName:@"MainWindow"];
     return self;
 }
 

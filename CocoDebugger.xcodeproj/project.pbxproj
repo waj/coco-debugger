@@ -11,7 +11,6 @@
 		329AE99B13F6F6B400563FF4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 329AE99A13F6F6B400563FF4 /* Cocoa.framework */; };
 		329AE9A513F6F6B400563FF4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 329AE9A313F6F6B400563FF4 /* InfoPlist.strings */; };
 		329AE9A713F6F6B400563FF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 329AE9A613F6F6B400563FF4 /* main.m */; };
-		329AE9AB13F6F6B400563FF4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 329AE9A913F6F6B400563FF4 /* Credits.rtf */; };
 		329AE9AE13F6F6B400563FF4 /* CocoDebuggerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 329AE9AD13F6F6B400563FF4 /* CocoDebuggerAppDelegate.m */; };
 		329AE9B113F6F6B400563FF4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329AE9AF13F6F6B400563FF4 /* MainMenu.xib */; };
 		329AE9BB13F6F72200563FF4 /* DebugClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 329AE9B813F6F72200563FF4 /* DebugClient.m */; };
@@ -19,6 +18,7 @@
 		32C902EC13F8A06E00B6ECDD /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C902EB13F8A06E00B6ECDD /* PSMTabBarControl.framework */; };
 		32C902EE13F8A11600B6ECDD /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32C902EB13F8A06E00B6ECDD /* PSMTabBarControl.framework */; };
 		32C902F513F8D6FD00B6ECDD /* CodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32C902F413F8D6FD00B6ECDD /* CodeView.m */; };
+		32DFDFCB13FA0241009D3D2F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32DFDFCA13FA0241009D3D2F /* MainWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,28 +35,28 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		32566BF813F8903F001117D6 /* VariablesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariablesView.h; sourceTree = "<group>"; };
-		32566BF913F8903F001117D6 /* VariablesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariablesView.m; sourceTree = "<group>"; };
+		32566BF813F8903F001117D6 /* VariablesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VariablesView.h; path = CocoDebugger/VariablesView.h; sourceTree = "<group>"; };
+		32566BF913F8903F001117D6 /* VariablesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VariablesView.m; path = CocoDebugger/VariablesView.m; sourceTree = "<group>"; };
 		329AE99613F6F6B400563FF4 /* CocoDebugger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoDebugger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		329AE99A13F6F6B400563FF4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		329AE99D13F6F6B400563FF4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		329AE99E13F6F6B400563FF4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		329AE99F13F6F6B400563FF4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		329AE9A213F6F6B400563FF4 /* CocoDebugger-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CocoDebugger-Info.plist"; sourceTree = "<group>"; };
+		329AE9A213F6F6B400563FF4 /* CocoDebugger-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CocoDebugger-Info.plist"; path = "CocoDebugger/CocoDebugger-Info.plist"; sourceTree = "<group>"; };
 		329AE9A413F6F6B400563FF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		329AE9A613F6F6B400563FF4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		329AE9A813F6F6B400563FF4 /* CocoDebugger-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CocoDebugger-Prefix.pch"; sourceTree = "<group>"; };
-		329AE9AA13F6F6B400563FF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		329AE9AC13F6F6B400563FF4 /* CocoDebuggerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CocoDebuggerAppDelegate.h; sourceTree = "<group>"; };
-		329AE9AD13F6F6B400563FF4 /* CocoDebuggerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CocoDebuggerAppDelegate.m; sourceTree = "<group>"; };
+		329AE9A613F6F6B400563FF4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CocoDebugger/main.m; sourceTree = "<group>"; };
+		329AE9A813F6F6B400563FF4 /* CocoDebugger-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CocoDebugger-Prefix.pch"; path = "CocoDebugger/CocoDebugger-Prefix.pch"; sourceTree = "<group>"; };
+		329AE9AC13F6F6B400563FF4 /* CocoDebuggerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CocoDebuggerAppDelegate.h; path = CocoDebugger/CocoDebuggerAppDelegate.h; sourceTree = "<group>"; };
+		329AE9AD13F6F6B400563FF4 /* CocoDebuggerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CocoDebuggerAppDelegate.m; path = CocoDebugger/CocoDebuggerAppDelegate.m; sourceTree = "<group>"; };
 		329AE9B013F6F6B400563FF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		329AE9B713F6F72200563FF4 /* DebugClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugClient.h; sourceTree = "<group>"; };
-		329AE9B813F6F72200563FF4 /* DebugClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugClient.m; sourceTree = "<group>"; };
-		329AE9B913F6F72200563FF4 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
-		329AE9BA13F6F72200563FF4 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		329AE9B713F6F72200563FF4 /* DebugClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugClient.h; path = CocoDebugger/DebugClient.h; sourceTree = "<group>"; };
+		329AE9B813F6F72200563FF4 /* DebugClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugClient.m; path = CocoDebugger/DebugClient.m; sourceTree = "<group>"; };
+		329AE9B913F6F72200563FF4 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowController.h; path = CocoDebugger/MainWindowController.h; sourceTree = "<group>"; };
+		329AE9BA13F6F72200563FF4 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = CocoDebugger/MainWindowController.m; sourceTree = "<group>"; };
 		32C902EB13F8A06E00B6ECDD /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = ../3rdParty/PSMTabBarControl/build/Release/PSMTabBarControl.framework; sourceTree = "<group>"; };
-		32C902F313F8D6FD00B6ECDD /* CodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeView.h; sourceTree = "<group>"; };
-		32C902F413F8D6FD00B6ECDD /* CodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeView.m; sourceTree = "<group>"; };
+		32C902F313F8D6FD00B6ECDD /* CodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CodeView.h; path = CocoDebugger/CodeView.h; sourceTree = "<group>"; };
+		32C902F413F8D6FD00B6ECDD /* CodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CodeView.m; path = CocoDebugger/CodeView.m; sourceTree = "<group>"; };
+		32DFDFCA13FA0241009D3D2F /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,8 @@
 		329AE98B13F6F6B400563FF4 = {
 			isa = PBXGroup;
 			children = (
-				329AE9A013F6F6B400563FF4 /* CocoDebugger */,
+				32DFDFC513FA0146009D3D2F /* Sources */,
+				32DFDFC713FA0163009D3D2F /* Resources */,
 				329AE99913F6F6B400563FF4 /* Frameworks */,
 				329AE99713F6F6B400563FF4 /* Products */,
 			);
@@ -109,35 +110,50 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		329AE9A013F6F6B400563FF4 /* CocoDebugger */ = {
+		32DFDFC513FA0146009D3D2F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				32DFDFC913FA01F5009D3D2F /* View Controllers */,
+				32DFDFC813FA01C7009D3D2F /* Window Controllers */,
 				329AE9B713F6F72200563FF4 /* DebugClient.h */,
 				329AE9B813F6F72200563FF4 /* DebugClient.m */,
-				329AE9B913F6F72200563FF4 /* MainWindowController.h */,
-				329AE9BA13F6F72200563FF4 /* MainWindowController.m */,
 				329AE9AC13F6F6B400563FF4 /* CocoDebuggerAppDelegate.h */,
 				329AE9AD13F6F6B400563FF4 /* CocoDebuggerAppDelegate.m */,
+				329AE9A813F6F6B400563FF4 /* CocoDebugger-Prefix.pch */,
+				329AE9A613F6F6B400563FF4 /* main.m */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		32DFDFC713FA0163009D3D2F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				329AE9AF13F6F6B400563FF4 /* MainMenu.xib */,
-				329AE9A113F6F6B400563FF4 /* Supporting Files */,
+				32DFDFCA13FA0241009D3D2F /* MainWindow.xib */,
+				329AE9A213F6F6B400563FF4 /* CocoDebugger-Info.plist */,
+				329AE9A313F6F6B400563FF4 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		32DFDFC813FA01C7009D3D2F /* Window Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				329AE9B913F6F72200563FF4 /* MainWindowController.h */,
+				329AE9BA13F6F72200563FF4 /* MainWindowController.m */,
+			);
+			name = "Window Controllers";
+			sourceTree = "<group>";
+		};
+		32DFDFC913FA01F5009D3D2F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				32566BF813F8903F001117D6 /* VariablesView.h */,
 				32566BF913F8903F001117D6 /* VariablesView.m */,
 				32C902F313F8D6FD00B6ECDD /* CodeView.h */,
 				32C902F413F8D6FD00B6ECDD /* CodeView.m */,
 			);
-			path = CocoDebugger;
-			sourceTree = "<group>";
-		};
-		329AE9A113F6F6B400563FF4 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				329AE9A213F6F6B400563FF4 /* CocoDebugger-Info.plist */,
-				329AE9A313F6F6B400563FF4 /* InfoPlist.strings */,
-				329AE9A613F6F6B400563FF4 /* main.m */,
-				329AE9A813F6F6B400563FF4 /* CocoDebugger-Prefix.pch */,
-				329AE9A913F6F6B400563FF4 /* Credits.rtf */,
-			);
-			name = "Supporting Files";
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,8 +208,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				329AE9A513F6F6B400563FF4 /* InfoPlist.strings in Resources */,
-				329AE9AB13F6F6B400563FF4 /* Credits.rtf in Resources */,
 				329AE9B113F6F6B400563FF4 /* MainMenu.xib in Resources */,
+				32DFDFCB13FA0241009D3D2F /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,14 +238,7 @@
 				329AE9A413F6F6B400563FF4 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		329AE9A913F6F6B400563FF4 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				329AE9AA13F6F6B400563FF4 /* en */,
-			);
-			name = Credits.rtf;
+			path = CocoDebugger;
 			sourceTree = "<group>";
 		};
 		329AE9AF13F6F6B400563FF4 /* MainMenu.xib */ = {
@@ -238,6 +247,7 @@
 				329AE9B013F6F6B400563FF4 /* en */,
 			);
 			name = MainMenu.xib;
+			path = CocoDebugger;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

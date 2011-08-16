@@ -7,11 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MainWindowController.h"
 
 @interface CocoDebuggerAppDelegate : NSObject <NSApplicationDelegate> {
-    NSWindow *window;
+    MainWindowController *mainWindowController;
 }
-
-@property (assign) IBOutlet NSWindow *window;
 
 @end
