@@ -7,9 +7,6 @@
 //
 
 #import "MainWindowController.h"
-#import <PSMTabBarControl/PSMRolloverButton.h>
-#import <PSMTabBarControl/PSMAquaTabStyle.h>
-#import <PSMTabBarControl/PSMAdiumTabStyle.h>
 
 @implementation MainWindowController
 
@@ -31,7 +28,6 @@
 
 - (IBAction)attach:(id)sender
 {
-    [tabBar setStyleNamed:@"Aqua"];
     debug = [[DebugClient alloc] init];
     debug.delegate = self;
     variablesController.debug = debug;
