@@ -1,5 +1,5 @@
 //
-//  CodeViewController.h
+//  CodeTabsController.h
 //  CocoDebugger
 //
 //  Created by Juan Wajnerman on 8/16/11.

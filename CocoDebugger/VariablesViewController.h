@@ -1,5 +1,5 @@
 //
-//  VariablesView.h
+//  VariablesViewController.h
 //  CocoDebugger
 //
 //  Created by Juan Wajnerman on 8/14/11.
