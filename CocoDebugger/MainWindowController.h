@@ -9,14 +9,14 @@
 #import <Cocoa/Cocoa.h>
 #import "DebugClient.h"
 #import "VariablesViewController.h"
-#import "CodeViewController.h"
+#import "CodeTabsController.h"
 
 @interface MainWindowController : NSWindowController <DebugClientDelegate>
 {
     IBOutlet NSView *variablesView;
     IBOutlet NSView *codeView;
     VariablesViewController *variablesController;
-    CodeViewController *codeController;
+    CodeTabsController *codeController;
     DebugClient *debug;
 }
 @end

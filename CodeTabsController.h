@@ -8,12 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface CodeViewController : NSViewController
+@interface CodeTabsController : NSViewController
 {
-    IBOutlet NSTextView* textView;
+    IBOutlet NSTabView *tabView;
+    NSMutableDictionary *tabControllers;
 }
 
--(void) loadFile:(NSString*)file;
--(void) highlightLine:(NSInteger)line;
-
+-(void)showFile:(NSString *)file line:(NSInteger)line;
 @end

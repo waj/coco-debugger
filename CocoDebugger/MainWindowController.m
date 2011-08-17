@@ -15,7 +15,7 @@
     self = [super initWithWindowNibName:@"MainWindow"];
     if (self) {
         variablesController = [VariablesViewController new];
-        codeController = [CodeViewController new];
+        codeController = [CodeTabsController new];
     }
     return self;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "CodeViewController.h"
+#import "NSThreadAdditions.h"
 
 @implementation CodeViewController
 
@@ -16,34 +17,37 @@
     return self;
 }
 
--(void)highlightLine:(NSNumber*)lineNumber
+-(void)loadFile:(NSString *)file
 {
-    NSInteger line = lineNumber.integerValue;
-    NSUInteger loc = 0;
-    NSUInteger start, end;
-    for (int i = 0; i < line; i++) {
-        [fileView.string getLineStart:&start end:&end contentsEnd:nil forRange:NSMakeRange(loc, 0)];
-        loc += end - start;
-    }
-    
-    [fileView.textStorage removeAttribute:NSBackgroundColorAttributeName range:NSMakeRange(0, fileView.string.length)];
-    NSRange range = NSMakeRange(start, end - start);
-    [fileView.textStorage addAttribute:NSBackgroundColorAttributeName
-                                 value:[NSColor greenColor]
-                                 range:range];
-    
-    NSRange glyphRange = [fileView.layoutManager glyphRangeForCharacterRange:range actualCharacterRange:nil];
-    NSRect rect = [fileView.layoutManager boundingRectForGlyphRange:glyphRange inTextContainer:fileView.textContainer];
-    [fileView scrollRectToVisible:rect];
+    [[NSThread mainThread] performBlock:^{
+        [textView readRTFDFromFile:file];
+        [textView setFont:[NSFont fontWithName:@"Monaco" size:12]];
+    } waitUntilDone:true];
 }
 
--(void)showFile:(NSString *)file line:(NSInteger)line
+-(void)highlightLine:(NSInteger)line
 {
-    [fileView performSelectorOnMainThread:@selector(readRTFDFromFile:) withObject:file waitUntilDone:true];
-    [fileView performSelectorOnMainThread:@selector(setFont:) withObject:[NSFont fontWithName:@"Monaco" size:12] waitUntilDone:true];
-    [self performSelectorOnMainThread:@selector(highlightLine:)
-                           withObject:[NSNumber numberWithInteger:line]
-                        waitUntilDone:true];
+    [[NSThread mainThread] performBlock:^{
+        NSUInteger loc = 0;
+        NSUInteger start, end;
+        for (int i = 0; i < line; i++) {
+            [textView.string getLineStart:&start end:&end contentsEnd:nil forRange:NSMakeRange(loc, 0)];
+            loc += end - start;
+        }
+        
+        [textView.textStorage removeAttribute:NSBackgroundColorAttributeName
+                                        range:NSMakeRange(0, textView.string.length)];
+        NSRange range = NSMakeRange(start, end - start);
+        [textView.textStorage addAttribute:NSBackgroundColorAttributeName
+                                     value:[NSColor greenColor]
+                                     range:range];
+        
+        NSRange glyphRange = [textView.layoutManager glyphRangeForCharacterRange:range actualCharacterRange:nil];
+        NSRect rect = [textView.layoutManager boundingRectForGlyphRange:glyphRange
+                                                        inTextContainer:textView.textContainer];
+        [textView scrollRectToVisible:rect];
+    } waitUntilDone:true];
 }
+
 
 @end
