@@ -42,10 +42,7 @@
                                      value:[NSColor greenColor]
                                      range:range];
         
-        NSRange glyphRange = [textView.layoutManager glyphRangeForCharacterRange:range actualCharacterRange:nil];
-        NSRect rect = [textView.layoutManager boundingRectForGlyphRange:glyphRange
-                                                        inTextContainer:textView.textContainer];
-        [textView scrollRectToVisible:rect];
+        [textView scrollRangeToVisible:range];
     } waitUntilDone:true];
 }
 
