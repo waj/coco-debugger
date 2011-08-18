@@ -46,6 +46,13 @@ NSString *up = @"..";
     return content;
 }
 
+-(BOOL)isDirectory:(NSString*)path
+{
+    NSError *error;
+    NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:&error];
+    return [attrs objectForKey:NSFileType] == NSFileTypeDirectory;
+}
+
 -(void)doubleClick:(id)sender
 {
     if (outline.clickedRow == 0) {
@@ -53,8 +60,11 @@ NSString *up = @"..";
         [rootPath retain];
         [outline reloadData];
     } else {
-        rootPath = [outline itemAtRow:outline.clickedRow];
-        [outline reloadData];
+        NSString *path = [outline itemAtRow:outline.clickedRow];
+        if ([self isDirectory:path]) {
+            rootPath = path;
+            [outline reloadData];
+        }
     }
 }
 
@@ -87,9 +97,7 @@ NSString *up = @"..";
     if (item == up)
         return false;
     
-    NSError *error;
-    NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfItemAtPath:item error:&error];
-    return [attrs objectForKey:NSFileType] == NSFileTypeDirectory;
+    return [self isDirectory:item];
 }
 
 -(id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
