@@ -33,6 +33,7 @@
     [codeView addSubview:codeController.view];
     
     drawer.contentView = projectController.view;
+    [drawer setContentSize:NSMakeSize(200, 0)];
     [drawer open:self];
 }
 
