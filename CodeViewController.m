@@ -8,13 +8,28 @@
 
 #import "CodeViewController.h"
 #import "NSThreadAdditions.h"
+#import "NoodleLineNumberView.h"
+#import "MarkerLineNumberView.h"
+#import "NoodleLineNumberMarker.h"
 
 @implementation CodeViewController
+@synthesize delegate;
 
 -(id)init
 {
     self = [super initWithNibName:@"CodeView" bundle:nil];
     return self;
+}
+
+-(void)loadView
+{
+    [super loadView];
+    MarkerLineNumberView *lineNumberView = [[MarkerLineNumberView alloc] initWithScrollView:scrollView];
+    lineNumberView.delegate = self;
+    [scrollView setVerticalRulerView:lineNumberView];
+    [scrollView setHasHorizontalRuler:false];
+    [scrollView setHasVerticalRuler:true];
+    [scrollView setRulersVisible:true];
 }
 
 -(void)loadFile:(NSString *)file
@@ -23,6 +38,12 @@
         [textView readRTFDFromFile:file];
         [textView setFont:[NSFont fontWithName:@"Monaco" size:12]];
     } waitUntilDone:true];
+    _file = file;
+}
+
+-(NSString *)file
+{
+    return _file;
 }
 
 -(void)highlightLine:(NSInteger)line
@@ -44,6 +65,16 @@
         
         [textView scrollRangeToVisible:range];
     } waitUntilDone:true];
+}
+
+-(void)markerAdded:(NoodleLineNumberMarker *)marker
+{
+    [delegate codeView:self breakpointAdded:[marker lineNumber]];
+}
+
+-(void)markerRemoved:(NoodleLineNumberMarker *)marker
+{
+    [delegate codeView:self breakpointRemoved:[marker lineNumber]];
 }
 
 

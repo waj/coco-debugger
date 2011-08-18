@@ -114,7 +114,7 @@
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
 {
     NSLog(@"Element: %@", elementName);
-    if ([@"suspended" isEqual:elementName]) {
+    if ([@"suspended" isEqual:elementName] || [@"breakpoint" isEqual:elementName]) {
         NSString *file = [attributeDict valueForKey:@"file"];
         NSString *line = [attributeDict valueForKey:@"line"];
         [attributeDict valueForKey:@"line"];
@@ -174,6 +174,16 @@
 -(void)varLocals
 {
     [self sendCommand:@"var local\n"]; 
+}
+
+-(void)addBreakpoint:(NSString *)file line:(NSInteger)line
+{
+    [self sendCommand:[NSString stringWithFormat:@"break %@:%d\n", file, line]];
+}
+
+-(void)removeBreakpoint:(NSString *)file line:(NSInteger)line
+{
+    
 }
 
 @end

@@ -22,6 +22,9 @@
 		329AE9BC13F6F72200563FF4 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329AE9BA13F6F72200563FF4 /* MainWindowController.m */; };
 		32C902EC13F8A06E00B6ECDD /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C902EB13F8A06E00B6ECDD /* PSMTabBarControl.framework */; };
 		32C902EE13F8A11600B6ECDD /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32C902EB13F8A06E00B6ECDD /* PSMTabBarControl.framework */; };
+		32D0DCB613FD2FD500A9B064 /* MarkerLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0DCB513FD2FD500A9B064 /* MarkerLineNumberView.m */; };
+		32D0DCBB13FD2FE400A9B064 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0DCB813FD2FE400A9B064 /* NoodleLineNumberMarker.m */; };
+		32D0DCBC13FD2FE400A9B064 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0DCBA13FD2FE400A9B064 /* NoodleLineNumberView.m */; };
 		32DFDFCB13FA0241009D3D2F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32DFDFCA13FA0241009D3D2F /* MainWindow.xib */; };
 		32ED45A113FA08B4009DB17E /* VariablesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32ED45A013FA08B4009DB17E /* VariablesView.xib */; };
 		32ED45AA13FA1A44009DB17E /* CodeTabsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ED45A813FA1A44009DB17E /* CodeTabsController.m */; };
@@ -69,6 +72,12 @@
 		329AE9B913F6F72200563FF4 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowController.h; path = CocoDebugger/MainWindowController.h; sourceTree = "<group>"; };
 		329AE9BA13F6F72200563FF4 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = CocoDebugger/MainWindowController.m; sourceTree = "<group>"; };
 		32C902EB13F8A06E00B6ECDD /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = ../3rdParty/PSMTabBarControl/build/Release/PSMTabBarControl.framework; sourceTree = "<group>"; };
+		32D0DCB413FD2FD500A9B064 /* MarkerLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerLineNumberView.h; sourceTree = "<group>"; };
+		32D0DCB513FD2FD500A9B064 /* MarkerLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerLineNumberView.m; sourceTree = "<group>"; };
+		32D0DCB713FD2FE400A9B064 /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberMarker.h; sourceTree = "<group>"; };
+		32D0DCB813FD2FE400A9B064 /* NoodleLineNumberMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberMarker.m; sourceTree = "<group>"; };
+		32D0DCB913FD2FE400A9B064 /* NoodleLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberView.h; sourceTree = "<group>"; };
+		32D0DCBA13FD2FE400A9B064 /* NoodleLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleLineNumberView.m; sourceTree = "<group>"; };
 		32DFDFCA13FA0241009D3D2F /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		32ED45A013FA08B4009DB17E /* VariablesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VariablesView.xib; sourceTree = "<group>"; };
 		32ED45A713FA1A44009DB17E /* CodeTabsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeTabsController.h; sourceTree = "<group>"; };
@@ -92,6 +101,7 @@
 		329AE98B13F6F6B400563FF4 = {
 			isa = PBXGroup;
 			children = (
+				32D0DC9A13FD29F300A9B064 /* External */,
 				32DFDFC513FA0146009D3D2F /* Sources */,
 				32DFDFC713FA0163009D3D2F /* Resources */,
 				329AE99913F6F6B400563FF4 /* Frameworks */,
@@ -125,6 +135,19 @@
 				329AE99F13F6F6B400563FF4 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		32D0DC9A13FD29F300A9B064 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				32D0DCB713FD2FE400A9B064 /* NoodleLineNumberMarker.h */,
+				32D0DCB813FD2FE400A9B064 /* NoodleLineNumberMarker.m */,
+				32D0DCB913FD2FE400A9B064 /* NoodleLineNumberView.h */,
+				32D0DCBA13FD2FE400A9B064 /* NoodleLineNumberView.m */,
+				32D0DCB413FD2FD500A9B064 /* MarkerLineNumberView.h */,
+				32D0DCB513FD2FD500A9B064 /* MarkerLineNumberView.m */,
+			);
+			name = External;
 			sourceTree = "<group>";
 		};
 		32DFDFC513FA0146009D3D2F /* Sources */ = {
@@ -260,6 +283,9 @@
 				322BA7F313FB440900FC4572 /* NSThreadAdditions.m in Sources */,
 				320B761613FB556200E8D282 /* CodeViewController.m in Sources */,
 				3260BEDE13FCA8EB00C265DE /* ProjectViewController.m in Sources */,
+				32D0DCB613FD2FD500A9B064 /* MarkerLineNumberView.m in Sources */,
+				32D0DCBB13FD2FE400A9B064 /* NoodleLineNumberMarker.m in Sources */,
+				32D0DCBC13FD2FE400A9B064 /* NoodleLineNumberView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

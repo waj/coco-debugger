@@ -18,6 +18,7 @@
         codeController = [CodeTabsController new];
         projectController = [ProjectViewController new];
         projectController.delegate = self;
+        codeController.delegate = self;
     }
     return self;
 }
@@ -39,7 +40,6 @@
 
 - (IBAction)attach:(id)sender
 {
-    [drawer toggle:projectController.view];
     debug = [[DebugClient alloc] init];
     debug.delegate = self;
     variablesController.debug = debug;
@@ -86,6 +86,16 @@
 -(void)projectViewFileSelected:(NSString *)path
 {
     [codeController showFile:path];
+}
+
+-(void)breakpointAdded:(NSString *)file line:(NSInteger)line
+{
+    [debug addBreakpoint:file line:line];
+}
+
+-(void)breakpointRemoved:(NSString *)file line:(NSInteger)line
+{
+    [debug removeBreakpoint:file line:line];
 }
 
 @end

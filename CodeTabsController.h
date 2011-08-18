@@ -7,13 +7,26 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CodeViewController.h"
 
-@interface CodeTabsController : NSViewController
+@protocol CodeTabsDelegate;
+
+@interface CodeTabsController : NSViewController <CodeViewDelegate>
 {
     IBOutlet NSTabView *tabView;
     NSMutableDictionary *tabControllers;
+    id<CodeTabsDelegate> delegate;
 }
 
 -(void)showFile:(NSString *)file;
 -(void)showFile:(NSString *)file line:(NSInteger)line;
+@property (assign) id<CodeTabsDelegate> delegate;
 @end
+
+@protocol CodeTabsDelegate <NSObject>
+
+-(void) breakpointAdded:(NSString*)file line:(NSInteger)line;
+-(void) breakpointRemoved:(NSString*)file line:(NSInteger)line;
+
+@end
+

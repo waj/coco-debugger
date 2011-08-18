@@ -11,6 +11,7 @@
 #import "CodeViewController.h"
 
 @implementation CodeTabsController
+@synthesize delegate;
 
 -(id)init
 {
@@ -32,6 +33,7 @@
         tab.label = [file lastPathComponent];
         tab.toolTip = file;
         tabController = [CodeViewController new];
+        tabController.delegate = self;
         tab.view = tabController.view;
         [tabView addTabViewItem:tab];
         [tabControllers setObject:tabController forKey:file];
@@ -54,6 +56,16 @@
 {
     CodeViewController *tabController = [self ensureTabForFile:file];
     [tabController highlightLine:line];
+}
+
+-(void)codeView:(CodeViewController *)codeView breakpointAdded:(NSInteger)line
+{
+    [delegate breakpointAdded:codeView.file line:line];
+}
+
+-(void)codeView:(CodeViewController *)codeView breakpointRemoved:(NSInteger)line
+{
+    [delegate breakpointRemoved:codeView.file line:line];
 }
 
 @end

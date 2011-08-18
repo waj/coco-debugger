@@ -27,6 +27,8 @@
 - (void)finish;
 - (void)cont;
 - (void)varLocals;
+- (void)addBreakpoint:(NSString*)file line:(NSInteger)line;
+- (void)removeBreakpoint:(NSString*)file line:(NSInteger)line;
 
 @property (assign) id<DebugClientDelegate> delegate;
 @property (readonly) NSDictionary* variables;
