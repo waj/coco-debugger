@@ -153,12 +153,17 @@
 
 -(void)step
 {
-    [self sendCommand:@"step\n"];
+    [self sendCommand:@"step+\n"];
 }
 
 -(void)next
 {
-    [self sendCommand:@"next\n"];
+    [self sendCommand:@"next+\n"];
+}
+
+-(void)finish
+{
+    [self sendCommand:@"finish\n"];
 }
 
 -(void)cont

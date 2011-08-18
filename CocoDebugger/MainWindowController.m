@@ -61,6 +61,10 @@
     [debug next];
 }
 
+- (IBAction)finish:(id)sender {
+    [debug finish];
+}
+
 -(void)debugSuspended:(DebugClient *)debugger file:(NSString *)file line:(NSInteger)line
 {
     [codeController showFile:file line:line];

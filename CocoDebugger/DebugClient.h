@@ -24,6 +24,7 @@
 - (void)quit;
 - (void)step;
 - (void)next;
+- (void)finish;
 - (void)cont;
 - (void)varLocals;
 
