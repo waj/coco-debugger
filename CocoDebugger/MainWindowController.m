@@ -16,6 +16,7 @@
     if (self) {
         variablesController = [VariablesViewController new];
         codeController = [CodeTabsController new];
+        projectController = [ProjectViewController new];
     }
     return self;
 }
@@ -29,10 +30,14 @@
     
     [codeController.view setFrame:[codeView bounds]];
     [codeView addSubview:codeController.view];
+    
+    drawer.contentView = projectController.view;
+    [drawer open:self];
 }
 
 - (IBAction)attach:(id)sender
 {
+    [drawer toggle:projectController.view];
     debug = [[DebugClient alloc] init];
     debug.delegate = self;
     variablesController.debug = debug;

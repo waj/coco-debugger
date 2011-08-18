@@ -11,6 +11,8 @@
 		320B761713FB556200E8D282 /* CodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 320B761513FB556200E8D282 /* CodeView.xib */; };
 		322BA7F313FB440900FC4572 /* NSThreadAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 322BA7F213FB440900FC4572 /* NSThreadAdditions.m */; };
 		32566BFA13F8903F001117D6 /* VariablesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32566BF913F8903F001117D6 /* VariablesViewController.m */; };
+		3260BEDE13FCA8EB00C265DE /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3260BEDC13FCA8EB00C265DE /* ProjectViewController.m */; };
+		3260BEDF13FCA8EB00C265DE /* ProjectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3260BEDD13FCA8EB00C265DE /* ProjectView.xib */; };
 		329AE99B13F6F6B400563FF4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 329AE99A13F6F6B400563FF4 /* Cocoa.framework */; };
 		329AE9A513F6F6B400563FF4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 329AE9A313F6F6B400563FF4 /* InfoPlist.strings */; };
 		329AE9A713F6F6B400563FF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 329AE9A613F6F6B400563FF4 /* main.m */; };
@@ -47,6 +49,9 @@
 		322BA7F213FB440900FC4572 /* NSThreadAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSThreadAdditions.m; sourceTree = "<group>"; };
 		32566BF813F8903F001117D6 /* VariablesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VariablesViewController.h; path = CocoDebugger/VariablesViewController.h; sourceTree = "<group>"; };
 		32566BF913F8903F001117D6 /* VariablesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VariablesViewController.m; path = CocoDebugger/VariablesViewController.m; sourceTree = "<group>"; };
+		3260BEDB13FCA8EB00C265DE /* ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectViewController.h; sourceTree = "<group>"; };
+		3260BEDC13FCA8EB00C265DE /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectViewController.m; sourceTree = "<group>"; };
+		3260BEDD13FCA8EB00C265DE /* ProjectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectView.xib; sourceTree = "<group>"; };
 		329AE99613F6F6B400563FF4 /* CocoDebugger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocoDebugger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		329AE99A13F6F6B400563FF4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		329AE99D13F6F6B400563FF4 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -142,6 +147,7 @@
 		32DFDFC713FA0163009D3D2F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3260BEDD13FCA8EB00C265DE /* ProjectView.xib */,
 				320B761513FB556200E8D282 /* CodeView.xib */,
 				32ED45A913FA1A44009DB17E /* CodeTabs.xib */,
 				329AE9AF13F6F6B400563FF4 /* MainMenu.xib */,
@@ -171,6 +177,8 @@
 				32ED45A813FA1A44009DB17E /* CodeTabsController.m */,
 				320B761313FB556200E8D282 /* CodeViewController.h */,
 				320B761413FB556200E8D282 /* CodeViewController.m */,
+				3260BEDB13FCA8EB00C265DE /* ProjectViewController.h */,
+				3260BEDC13FCA8EB00C265DE /* ProjectViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -232,6 +240,7 @@
 				32ED45A113FA08B4009DB17E /* VariablesView.xib in Resources */,
 				32ED45AB13FA1A44009DB17E /* CodeTabs.xib in Resources */,
 				320B761713FB556200E8D282 /* CodeView.xib in Resources */,
+				3260BEDF13FCA8EB00C265DE /* ProjectView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +259,7 @@
 				32ED45AA13FA1A44009DB17E /* CodeTabsController.m in Sources */,
 				322BA7F313FB440900FC4572 /* NSThreadAdditions.m in Sources */,
 				320B761613FB556200E8D282 /* CodeViewController.m in Sources */,
+				3260BEDE13FCA8EB00C265DE /* ProjectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
