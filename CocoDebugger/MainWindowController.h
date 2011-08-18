@@ -12,7 +12,7 @@
 #import "CodeTabsController.h"
 #import "ProjectViewController.h"
 
-@interface MainWindowController : NSWindowController <DebugClientDelegate>
+@interface MainWindowController : NSWindowController <DebugClientDelegate, ProjectViewDelegate>
 {
     IBOutlet NSView *variablesView;
     IBOutlet NSView *codeView;

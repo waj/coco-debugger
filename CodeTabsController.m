@@ -45,6 +45,11 @@
     return tabController;
 }
 
+-(void)showFile:(NSString *)file
+{
+    [self ensureTabForFile:file];
+}
+
 -(void)showFile:(NSString *)file line:(NSInteger)line
 {
     CodeViewController *tabController = [self ensureTabForFile:file];

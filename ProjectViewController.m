@@ -9,6 +9,7 @@
 #import "ProjectViewController.h"
 
 @implementation ProjectViewController
+@synthesize delegate;
 
 NSString *up = @"..";
 
@@ -30,7 +31,8 @@ NSString *up = @"..";
     [column setDataCell:cell];
     
     [outline setTarget:self];
-    [outline setDoubleAction:@selector(doubleClick:)];
+    [outline setAction:@selector(outlineAction:)];
+    [outline setDoubleAction:@selector(outlineDoubleAction:)];
 }
 
 -(NSArray*)contentOfPath:(NSString*)path
@@ -53,7 +55,24 @@ NSString *up = @"..";
     return [attrs objectForKey:NSFileType] == NSFileTypeDirectory;
 }
 
--(void)doubleClick:(id)sender
+-(BOOL)isFile:(NSString*)path
+{
+    NSError *error;
+    NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:&error];
+    return [attrs objectForKey:NSFileType] == NSFileTypeRegular;
+}
+
+-(void)outlineAction:(id)sender
+{
+    if (outline.clickedRow > 0) {
+        NSString *path = [outline itemAtRow:outline.clickedRow];
+        if ([self isFile:path]) {
+            [delegate projectViewFileSelected:path];
+        }
+    }
+}
+
+-(void)outlineDoubleAction:(id)sender
 {
     if (outline.clickedRow == 0) {
         rootPath = [rootPath stringByDeletingLastPathComponent];

@@ -17,6 +17,7 @@
         variablesController = [VariablesViewController new];
         codeController = [CodeTabsController new];
         projectController = [ProjectViewController new];
+        projectController.delegate = self;
     }
     return self;
 }
@@ -79,6 +80,11 @@
 -(void)debugLocalVariablesChanged:(DebugClient *)debug
 {
     [variablesController reloadData];
+}
+
+-(void)projectViewFileSelected:(NSString *)path
+{
+    [codeController showFile:path];
 }
 
 @end

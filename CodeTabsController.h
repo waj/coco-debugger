@@ -14,5 +14,6 @@
     NSMutableDictionary *tabControllers;
 }
 
+-(void)showFile:(NSString *)file;
 -(void)showFile:(NSString *)file line:(NSInteger)line;
 @end
