@@ -131,7 +131,7 @@
 
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if ([@"variable" isEqual:elementName]) {
+    if ([@"variables" isEqual:elementName]) {
         [delegate debugLocalVariablesChanged:self];
     }
 }
