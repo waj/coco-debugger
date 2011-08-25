@@ -83,6 +83,13 @@
     [variablesController reloadData];
 }
 
+-(void)debugEnd:(DebugClient *)debug
+{
+    variablesController.debug = nil;
+    [self->debug release];
+    self->debug = nil;
+}
+
 -(void)projectViewFileSelected:(NSString *)path
 {
     [codeController showFile:path];

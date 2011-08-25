@@ -38,5 +38,6 @@
 
 - (void)debugSuspended:(DebugClient*)debug file:(NSString*)file line:(NSInteger)line;
 - (void)debugLocalVariablesChanged:(DebugClient*)debug;
+- (void)debugEnd:(DebugClient*)debug;
 
 @end

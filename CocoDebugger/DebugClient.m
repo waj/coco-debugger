@@ -39,6 +39,11 @@
     [iStream open];
 }
 
+-(void)close
+{
+    [iStream close];
+}
+
 -(NSInteger)read:(uint8_t *)buffer maxLength:(NSUInteger)len
 {
     if (sent)
@@ -92,6 +97,8 @@
         [parser retain];
         parser.delegate = self;
         [NSThread detachNewThreadSelector:@selector(parse) toTarget:parser withObject:nil];
+    } else if (eventCode == NSStreamEventEndEncountered && aStream == iStream) {
+        [delegate debugEnd:self];
     }
 }
 
