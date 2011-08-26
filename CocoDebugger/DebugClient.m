@@ -13,6 +13,10 @@
 -(void)sendCommand:(NSString*)cmd;
 @end
 
+NSString * const DebugSuspendedEvent = @"DebugSuspend";
+NSString * const DebugVariablesEvent = @"DebugVariables";
+NSString * const DebugEndEvent = @"DebugEnd";
+
 @interface DummyStream : NSInputStream
 {
     BOOL sent;
@@ -57,15 +61,13 @@
 
 @implementation DebugClient
 
-@synthesize delegate;
-@synthesize variables;
-
 - (id)init
 {
     self = [super init];
     if (self) {
         pending = [[NSMutableData alloc] init];
         variables = [[NSMutableDictionary alloc] init];
+        notifCenter = [NSNotificationCenter defaultCenter];
     }
     
     return self;
@@ -98,7 +100,7 @@
         parser.delegate = self;
         [NSThread detachNewThreadSelector:@selector(parse) toTarget:parser withObject:nil];
     } else if (eventCode == NSStreamEventEndEncountered && aStream == iStream) {
-        [delegate debugEnd:self];
+        [notifCenter postNotificationName:DebugEndEvent object:self];
     }
 }
 
@@ -124,8 +126,9 @@
     if ([@"suspended" isEqual:elementName] || [@"breakpoint" isEqual:elementName]) {
         NSString *file = [attributeDict valueForKey:@"file"];
         NSString *line = [attributeDict valueForKey:@"line"];
-        [attributeDict valueForKey:@"line"];
-        [delegate debugSuspended:self file:file line:line.integerValue];
+        NSDictionary *info = [NSDictionary dictionaryWithObjectsAndKeys:file, @"file",
+                              [NSNumber numberWithInteger:line.integerValue], @"line", nil];
+        [[NSNotificationCenter defaultCenter]postNotificationName:DebugSuspendedEvent object:self userInfo:info];
     } else if ([@"variables" isEqual:elementName]) {
         [variables removeAllObjects];
     } else if ([@"variable" isEqual:elementName]) {
@@ -139,7 +142,7 @@
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
     if ([@"variables" isEqual:elementName]) {
-        [delegate debugLocalVariablesChanged:self];
+        [notifCenter postNotificationName:DebugVariablesEvent object:self userInfo:variables];
     }
 }
 

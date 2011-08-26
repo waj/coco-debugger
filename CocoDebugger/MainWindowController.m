@@ -19,6 +19,9 @@
         projectController = [ProjectViewController new];
         projectController.delegate = self;
         codeController.delegate = self;
+        
+        NSNotificationCenter *notifCenter = [NSNotificationCenter defaultCenter];
+        [notifCenter addObserver:self selector:@selector(debugSuspended:) name:DebugSuspendedEvent object:nil];
     }
     return self;
 }
@@ -41,8 +44,6 @@
 - (IBAction)attach:(id)sender
 {
     debug = [[DebugClient alloc] init];
-    debug.delegate = self;
-    variablesController.debug = debug;
     [debug connect];
 }
 
@@ -72,20 +73,12 @@
     [debug finish];
 }
 
--(void)debugSuspended:(DebugClient *)debugger file:(NSString *)file line:(NSInteger)line
+-(void)debugSuspended:(NSNotification*)notification
 {
-    [codeController showFile:file line:line];
-    [debugger varLocals];
-}
-
--(void)debugLocalVariablesChanged:(DebugClient *)debug
-{
-    [variablesController reloadData];
 }
 
 -(void)debugEnd:(DebugClient *)debug
 {
-    variablesController.debug = nil;
     [self->debug release];
     self->debug = nil;
 }

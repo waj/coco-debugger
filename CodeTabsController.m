@@ -9,6 +9,7 @@
 #import "CodeTabsController.h"
 #import "NSThreadAdditions.h"
 #import "CodeViewController.h"
+#import "DebugClient.h"
 
 @implementation CodeTabsController
 @synthesize delegate;
@@ -18,6 +19,8 @@
     self = [super initWithNibName:@"CodeTabs" bundle:nil];
     if (self) {
         tabControllers = [NSMutableDictionary new];
+        NSNotificationCenter *notifCenter = [NSNotificationCenter defaultCenter];
+        [notifCenter addObserver:self selector:@selector(debugSuspended:) name:DebugSuspendedEvent object:nil];
     }
     return self;
 }
@@ -56,6 +59,13 @@
 {
     CodeViewController *tabController = [self ensureTabForFile:file];
     [tabController highlightLine:line];
+}
+
+-(void)debugSuspended:(NSNotification*)notification
+{
+    NSString *file = [notification.userInfo objectForKey:@"file"];
+    NSInteger line = [[notification.userInfo objectForKey:@"line"] integerValue];
+    [self showFile:file line:line];
 }
 
 -(void)codeView:(CodeViewController *)codeView breakpointAdded:(NSInteger)line

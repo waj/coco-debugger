@@ -8,15 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol DebugClientDelegate;
-
 @interface DebugClient : NSObject <NSStreamDelegate, NSXMLParserDelegate>
 {
     NSInputStream *iStream;
     NSOutputStream *oStream;
     NSMutableData *pending;
-    id<DebugClientDelegate> delegate;
     NSMutableDictionary *variables;
+    NSNotificationCenter *notifCenter;
 }
 
 - (void)connect;
@@ -30,14 +28,8 @@
 - (void)addBreakpoint:(NSString*)file line:(NSInteger)line;
 - (void)removeBreakpoint:(NSString*)file line:(NSInteger)line;
 
-@property (assign) id<DebugClientDelegate> delegate;
-@property (readonly) NSDictionary* variables;
 @end
 
-@protocol DebugClientDelegate <NSObject>
-
-- (void)debugSuspended:(DebugClient*)debug file:(NSString*)file line:(NSInteger)line;
-- (void)debugLocalVariablesChanged:(DebugClient*)debug;
-- (void)debugEnd:(DebugClient*)debug;
-
-@end
+extern NSString * const DebugSuspendedEvent;
+extern NSString * const DebugVariablesEvent;
+extern NSString * const DebugEndEvent;

@@ -14,10 +14,7 @@
     IBOutlet NSTableView *tableView;
     IBOutlet NSTableColumn *nameColumn;
     IBOutlet NSTableColumn *valueColumn;
-    DebugClient *debug;
+    NSDictionary *variables;
 }
-
--(void) reloadData;
-@property (assign) DebugClient *debug;
 
 @end

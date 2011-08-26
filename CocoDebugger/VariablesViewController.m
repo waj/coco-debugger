@@ -9,31 +9,42 @@
 #import "VariablesViewController.h"
 
 @implementation VariablesViewController
-@synthesize debug;
 
 -(id)init
 {
     self = [super initWithNibName:@"VariablesView" bundle:nil];
+    if (self) {
+        NSNotificationCenter *notifCenter = [NSNotificationCenter defaultCenter];
+        [notifCenter addObserver:self selector:@selector(debugSuspended:) name:DebugSuspendedEvent object:nil];
+        [notifCenter addObserver:self selector:@selector(debugVariables:) name:DebugVariablesEvent object:nil];
+    }
     return self;
 }
 
--(void)reloadData
+-(void)debugSuspended:(NSNotification*)notification
 {
+    [notification.object varLocals];
+}
+
+-(void)debugVariables:(NSNotification*)notification
+{
+    variables = [notification.userInfo copy];
     [tableView reloadData];
 }
 
+
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
-    return debug.variables.count;
+    return variables.count;
 }
 
 -(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    NSString *key = [debug.variables.allKeys objectAtIndex:row];
+    NSString *key = [variables.allKeys objectAtIndex:row];
     if (tableColumn == nameColumn) {
         return key;
     } else {
-        return [debug.variables objectForKey:key];
+        return [variables objectForKey:key];
     }
 }
 

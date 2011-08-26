@@ -19,7 +19,6 @@
 }
 
 -(void)showFile:(NSString *)file;
--(void)showFile:(NSString *)file line:(NSInteger)line;
 @property (assign) id<CodeTabsDelegate> delegate;
 @end
 
