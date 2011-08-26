@@ -32,12 +32,50 @@
     [scrollView setRulersVisible:true];
 }
 
+-(BOOL)colorize: (NSString*)regex range:(NSRange*)range withColor:(NSColor*)color
+{
+    NSRange found = [textView.string rangeOfString:regex options:NSRegularExpressionSearch range: *range];
+    if (found.location != NSNotFound) {
+        if (color) {
+            [[NSThread mainThread] performBlock:^{
+                [textView.textStorage addAttribute:NSForegroundColorAttributeName
+                                             value:color
+                                             range:found];
+            }];
+        }
+        range->location = found.location + found.length;
+        range->length -= found.length;
+        return true;
+    }
+    return false;
+}
+
 -(void)loadFile:(NSString *)file
 {
     [[NSThread mainThread] performBlock:^{
         [textView readRTFDFromFile:file];
         [textView setFont:[NSFont fontWithName:@"Monaco" size:12]];
     } waitUntilDone:true];
+    
+    [NSThread performBlockInBackground:^{
+        NSRange current = NSMakeRange(0, textView.string.length);
+        while (current.location < textView.string.length) {
+            if (
+                [self colorize:@"^(attr_accessor|attr_reader|attr_writer|def|do|elsif|else|end|if|true|false|class|while|nil|yield|return|unless|next|break|module|retry|raise|rescue|begin|new|require)\\b" range:&current withColor: [NSColor blueColor]]
+                || [self colorize:@"^(\"[^\"]*\"|'[^']*')" range:&current withColor: [NSColor purpleColor]]
+                || [self colorize:@"^#.*" range:&current withColor: [NSColor grayColor]]
+                || [self colorize:@"^[A-Z_]\\w*" range:&current withColor: [NSColor orangeColor]]
+                || [self colorize:@"^@\\w+" range:&current withColor: [NSColor darkGrayColor]]
+                || [self colorize:@"^::" range:&current withColor: nil]
+                || [self colorize:@"^:(\\w|\\!|\\?)+" range:&current withColor: [NSColor redColor]]
+                || [self colorize:@"^\\w+\\b" range:&current withColor: nil]
+                || [self colorize:@"^\\s+" range:&current withColor: nil]
+                ) continue;            
+            current.location++;
+            current.length--;        
+        }
+    }];
+    
     _file = file;
 }
 
