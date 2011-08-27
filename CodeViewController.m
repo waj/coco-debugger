@@ -38,9 +38,7 @@
     if (found.location != NSNotFound) {
         if (color) {
             [[NSThread mainThread] performBlock:^{
-                [textView.textStorage addAttribute:NSForegroundColorAttributeName
-                                             value:color
-                                             range:found];
+                [textView.textStorage addAttribute:NSForegroundColorAttributeName value:color range:found];
             }];
         }
         range->location = found.location + found.length;
@@ -48,6 +46,85 @@
         return true;
     }
     return false;
+}
+
+-(void)colorize
+{
+    NSRange current = NSMakeRange(0, textView.string.length);
+    NSRange found;
+    
+    while (current.location < textView.string.length) {
+        // Special case for def self.method
+        found = [textView.string rangeOfString:@"^def\\s+self\\.\\w+(\\!|\\?)?" options:NSRegularExpressionSearch range: current];
+        if (found.location != NSNotFound) {
+            [[NSThread mainThread] performBlock:^{
+                [textView.textStorage addAttribute:NSForegroundColorAttributeName value:[NSColor blueColor] range:NSMakeRange(found.location, 3)];
+            }];
+            current.location += 3;
+            current.length -=3;
+            
+            found = [textView.string rangeOfString:@"^\\s+" options:NSRegularExpressionSearch range: current];
+            current.location = found.location + found.length;
+            current.length -= found.length;
+            
+            [[NSThread mainThread] performBlock:^{
+                [textView.textStorage addAttribute:NSForegroundColorAttributeName value:[NSColor blueColor] range:NSMakeRange(current.location, 4)];
+            }];
+            
+            current.location += 5;
+            current.length -=5;
+            
+            found = [textView.string rangeOfString:@"^\\w+(\\!|\\?)?" options:NSRegularExpressionSearch range: current];
+            
+            [[NSThread mainThread] performBlock:^{
+                [textView.textStorage addAttribute:NSForegroundColorAttributeName value:[NSColor brownColor] range:found];
+            }];
+            current.location = found.location + found.length;
+            current.length -= found.length;
+            continue;
+        }
+
+        
+        // Special case for def method
+        found = [textView.string rangeOfString:@"^def\\s+\\w+(\\!|\\?)?" options:NSRegularExpressionSearch range: current];
+        if (found.location != NSNotFound) {
+            [[NSThread mainThread] performBlock:^{
+                [textView.textStorage addAttribute:NSForegroundColorAttributeName value:[NSColor blueColor] range:NSMakeRange(found.location, 3)];
+            }];
+            current.location += 3;
+            current.length -=3;
+            
+            found = [textView.string rangeOfString:@"^\\s+" options:NSRegularExpressionSearch range: current];
+            current.location = found.location + found.length;
+            current.length -= found.length;
+            
+            found = [textView.string rangeOfString:@"^\\w+(\\!|\\?)?" options:NSRegularExpressionSearch range: current];
+            
+            [[NSThread mainThread] performBlock:^{
+                [textView.textStorage addAttribute:NSForegroundColorAttributeName value:[NSColor brownColor] range:found];
+            }];
+            current.location = found.location + found.length;
+            current.length -= found.length;
+            continue;
+        }
+        
+        if (
+            [self colorize:@"^(attr_accessor|attr_reader|attr_writer|def|do|elsif|else|end|if|class_eval|class|while|yield|return|unless|next|break|module|retry|raise|rescue|begin|new|require|self|case|when|instance_eval)(\\s|\\Z)" range:&current withColor: [NSColor blueColor]]
+            || [self colorize:@"^(false|true|nil)(\\s|\\Z)" range:&current withColor: [NSColor magentaColor]]
+            || [self colorize:@"^(\\+|-)?\\d(\\d|_)*(\\.\\d(\\d|_)*)?" range:&current withColor: [NSColor magentaColor]]
+            || [self colorize:@"^(\"[^\"]*\"|'[^']*')" range:&current withColor: [NSColor purpleColor]]
+            || [self colorize:@"^/[^/]+/" range:&current withColor: [NSColor brownColor]]
+            || [self colorize:@"^#.*" range:&current withColor: [NSColor grayColor]]
+            || [self colorize:@"^[A-Z_]\\w*" range:&current withColor: [NSColor orangeColor]]
+            || [self colorize:@"^@\\w+" range:&current withColor: [NSColor darkGrayColor]]
+            || [self colorize:@"^::" range:&current withColor: nil]
+            || [self colorize:@"^:((\\w)+(\\!|\\?)?|\"[^\"]*\"|'[^']*')" range:&current withColor: [NSColor redColor]]
+            || [self colorize:@"^\\w+\\b" range:&current withColor: nil]
+            || [self colorize:@"^\\s+" range:&current withColor: nil]
+            ) continue;            
+        current.location++;
+        current.length--;        
+    }
 }
 
 -(void)loadFile:(NSString *)file
@@ -58,22 +135,7 @@
     } waitUntilDone:true];
     
     [NSThread performBlockInBackground:^{
-        NSRange current = NSMakeRange(0, textView.string.length);
-        while (current.location < textView.string.length) {
-            if (
-                [self colorize:@"^(attr_accessor|attr_reader|attr_writer|def|do|elsif|else|end|if|true|false|class|while|nil|yield|return|unless|next|break|module|retry|raise|rescue|begin|new|require)\\b" range:&current withColor: [NSColor blueColor]]
-                || [self colorize:@"^(\"[^\"]*\"|'[^']*')" range:&current withColor: [NSColor purpleColor]]
-                || [self colorize:@"^#.*" range:&current withColor: [NSColor grayColor]]
-                || [self colorize:@"^[A-Z_]\\w*" range:&current withColor: [NSColor orangeColor]]
-                || [self colorize:@"^@\\w+" range:&current withColor: [NSColor darkGrayColor]]
-                || [self colorize:@"^::" range:&current withColor: nil]
-                || [self colorize:@"^:(\\w|\\!|\\?)+" range:&current withColor: [NSColor redColor]]
-                || [self colorize:@"^\\w+\\b" range:&current withColor: nil]
-                || [self colorize:@"^\\s+" range:&current withColor: nil]
-                ) continue;            
-            current.location++;
-            current.length--;        
-        }
+        [self colorize];
     }];
     
     _file = file;
