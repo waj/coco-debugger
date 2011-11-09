@@ -233,6 +233,7 @@
 		329AE98D13F6F6B400563FF4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Manas Technology Solutions";
 			};
 			buildConfigurationList = 329AE99013F6F6B400563FF4 /* Build configuration list for PBXProject "CocoDebugger" */;

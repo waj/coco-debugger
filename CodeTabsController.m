@@ -32,7 +32,7 @@
     CodeViewController *tabController;
     
     if (index == NSNotFound) {
-        tab = [[NSTabViewItem alloc] initWithIdentifier:file];
+        tab = [[[NSTabViewItem alloc] initWithIdentifier:file] autorelease];
         tab.label = [file lastPathComponent];
         tab.toolTip = file;
         tabController = [CodeViewController new];

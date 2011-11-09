@@ -23,15 +23,14 @@ NSString * const DebugEndEvent = @"DebugEnd";
     NSInputStream *iStream;
 }
 
-+(id)initWithInputStream:(NSInputStream*)stream;
++(id)newWithInputStream:(NSInputStream*)stream;
 @end
 
 @implementation DummyStream
 
-+(id)initWithInputStream:(NSInputStream *)stream
++(id)newWithInputStream:(NSInputStream *)stream
 {
     DummyStream *obj = [[DummyStream alloc] init];
-    [obj retain];
     obj->iStream = stream;
     obj->sent = false;
     
@@ -95,7 +94,7 @@ NSString * const DebugEndEvent = @"DebugEnd";
     } else if (eventCode == NSStreamEventHasSpaceAvailable) {
         [self flushSomeData];
     } else if (eventCode == NSStreamEventOpenCompleted && aStream == iStream) {
-        NSXMLParser *parser = [[NSXMLParser alloc] initWithStream:[DummyStream initWithInputStream:iStream]];
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithStream:[DummyStream newWithInputStream:iStream]];
         [parser retain];
         parser.delegate = self;
         [NSThread detachNewThreadSelector:@selector(parse) toTarget:parser withObject:nil];
