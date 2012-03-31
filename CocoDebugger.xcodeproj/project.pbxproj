@@ -20,8 +20,7 @@
 		329AE9B113F6F6B400563FF4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 329AE9AF13F6F6B400563FF4 /* MainMenu.xib */; };
 		329AE9BB13F6F72200563FF4 /* DebugClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 329AE9B813F6F72200563FF4 /* DebugClient.m */; };
 		329AE9BC13F6F72200563FF4 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329AE9BA13F6F72200563FF4 /* MainWindowController.m */; };
-		32C902EC13F8A06E00B6ECDD /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C902EB13F8A06E00B6ECDD /* PSMTabBarControl.framework */; };
-		32C902EE13F8A11600B6ECDD /* PSMTabBarControl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32C902EB13F8A06E00B6ECDD /* PSMTabBarControl.framework */; };
+		329E319915268246007C9AF3 /* PSMTabBarControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 329E31961526821D007C9AF3 /* PSMTabBarControl.framework */; };
 		32D0DCB613FD2FD500A9B064 /* MarkerLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0DCB513FD2FD500A9B064 /* MarkerLineNumberView.m */; };
 		32D0DCBB13FD2FE400A9B064 /* NoodleLineNumberMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0DCB813FD2FE400A9B064 /* NoodleLineNumberMarker.m */; };
 		32D0DCBC13FD2FE400A9B064 /* NoodleLineNumberView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D0DCBA13FD2FE400A9B064 /* NoodleLineNumberView.m */; };
@@ -31,6 +30,23 @@
 		32ED45AB13FA1A44009DB17E /* CodeTabs.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32ED45A913FA1A44009DB17E /* CodeTabs.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		329E31951526821D007C9AF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 329E318B1526821D007C9AF3 /* PSMTabBarControl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53DF68FD067E5B5A0090B5B0;
+			remoteInfo = PSMTabBarControlFramework;
+		};
+		329E31971526821D007C9AF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 329E318B1526821D007C9AF3 /* PSMTabBarControl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8BD4395A1185147D00DB4AC3;
+			remoteInfo = PSMTabBarControlDemo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		32C902ED13F8A0C100B6ECDD /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -38,7 +54,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				32C902EE13F8A11600B6ECDD /* PSMTabBarControl.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +86,7 @@
 		329AE9B813F6F72200563FF4 /* DebugClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugClient.m; path = CocoDebugger/DebugClient.m; sourceTree = "<group>"; };
 		329AE9B913F6F72200563FF4 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowController.h; path = CocoDebugger/MainWindowController.h; sourceTree = "<group>"; };
 		329AE9BA13F6F72200563FF4 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowController.m; path = CocoDebugger/MainWindowController.m; sourceTree = "<group>"; };
-		32C902EB13F8A06E00B6ECDD /* PSMTabBarControl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PSMTabBarControl.framework; path = ../3rdParty/PSMTabBarControl/build/Release/PSMTabBarControl.framework; sourceTree = "<group>"; };
+		329E318B1526821D007C9AF3 /* PSMTabBarControl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PSMTabBarControl.xcodeproj; path = PSMTabBarControl/Source/PSMTabBarControl.xcodeproj; sourceTree = "<group>"; };
 		32D0DCB413FD2FD500A9B064 /* MarkerLineNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerLineNumberView.h; sourceTree = "<group>"; };
 		32D0DCB513FD2FD500A9B064 /* MarkerLineNumberView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerLineNumberView.m; sourceTree = "<group>"; };
 		32D0DCB713FD2FE400A9B064 /* NoodleLineNumberMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleLineNumberMarker.h; sourceTree = "<group>"; };
@@ -90,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32C902EC13F8A06E00B6ECDD /* PSMTabBarControl.framework in Frameworks */,
+				329E319915268246007C9AF3 /* PSMTabBarControl.framework in Frameworks */,
 				329AE99B13F6F6B400563FF4 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,7 +135,7 @@
 		329AE99913F6F6B400563FF4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				32C902EB13F8A06E00B6ECDD /* PSMTabBarControl.framework */,
+				329E318B1526821D007C9AF3 /* PSMTabBarControl.xcodeproj */,
 				329AE99A13F6F6B400563FF4 /* Cocoa.framework */,
 				329AE99C13F6F6B400563FF4 /* Other Frameworks */,
 			);
@@ -135,6 +150,15 @@
 				329AE99F13F6F6B400563FF4 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		329E318C1526821D007C9AF3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				329E31961526821D007C9AF3 /* PSMTabBarControl.framework */,
+				329E31981526821D007C9AF3 /* PSMTabBarControlDemo.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		32D0DC9A13FD29F300A9B064 /* External */ = {
@@ -233,7 +257,7 @@
 		329AE98D13F6F6B400563FF4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Manas Technology Solutions";
 			};
 			buildConfigurationList = 329AE99013F6F6B400563FF4 /* Build configuration list for PBXProject "CocoDebugger" */;
@@ -246,12 +270,35 @@
 			mainGroup = 329AE98B13F6F6B400563FF4;
 			productRefGroup = 329AE99713F6F6B400563FF4 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 329E318C1526821D007C9AF3 /* Products */;
+					ProjectRef = 329E318B1526821D007C9AF3 /* PSMTabBarControl.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				329AE99513F6F6B400563FF4 /* CocoDebugger */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		329E31961526821D007C9AF3 /* PSMTabBarControl.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PSMTabBarControl.framework;
+			remoteRef = 329E31951526821D007C9AF3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		329E31981526821D007C9AF3 /* PSMTabBarControlDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = PSMTabBarControlDemo.app;
+			remoteRef = 329E31971526821D007C9AF3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		329AE99413F6F6B400563FF4 /* Resources */ = {
